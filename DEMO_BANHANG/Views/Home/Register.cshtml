@@ -1,0 +1,38 @@
+﻿@model DEMO_BANHANG.Models.account
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+<div class=" container">
+    <div class="col-6">
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(acc => acc.name, " User Name")
+                @Html.TextBoxFor(acc => acc.name, new { @placeholder = "Name" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(acc => acc.email, " Email ")
+                @Html.TextBoxFor(acc => acc.email, new { @placeholder = "Email" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(acc => acc.password, " Password ")
+                @Html.PasswordFor(acc => acc.password, new { @placeholder = "Password" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(acc => acc.address, " Address ")
+                @Html.TextBoxFor(acc => acc.address, new { @placeholder = "Addresss" })
+            </div>
+            <div>
+                @Html.LabelFor(acc => acc.phone, " Phone ")
+                @Html.TextBoxFor(acc => acc.phone, new { @placeholder = " Phone" })
+            </div>
+
+            <input type="submit" name="submit" class="btn btn-danger" value="Register" />
+        }
+    </div>
+</div>
+

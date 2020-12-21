@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Trangchu";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    var sanpham = ViewBag.SanPhams;
+}
+
+<h2></h2>
+<div class="container">
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">TEAMO SHOP </h1>
+        <p class="lead">Teamo chính thức ra đời từ tháng 11/2020 Bằng niềm đam mê và nhiệt huyết của tuổi trẻ, chúng mình muốn đem những sản phẩm tuyệt vời nhất đến với khách hàng .Tuổi trẻ là bồng trên tay những hoài bão, là ấp trong tim những nhiệt thành. Và trên tất cả, Teamo luôn mong rằng mỗi ngày mỗi ngày bạn đều ghé vào chơi cùng chúng mình, chia sẻ cùng chúng mình, vì chúng ta đều trẻ và yêu đời ^^.</p>
+        <a href="#" class="btn btn-primary btn-lg">Xem Ngay!</a>
+        <img src="~/Image/banner.jpg" alt="Alternate Text" width="1000" />
+    </header>
+    <!-- Page Features -->
+    <div class="row text-center">
+        @foreach (var sp in sanpham)//
+        {
+            var url = "Pictures/s/Details/" + sp.id;
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="@url"><img class="card-img-top" src="@sp.images" alt="" width="100"></a>
+                    <div class="card-body">
+                        <h4 class="card-title">@sp.name</h4>
+                        <p class="card-text">@sp.price</p>
+                        <p class="card-text">@sp.description</p>
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Mua Ngay !</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
